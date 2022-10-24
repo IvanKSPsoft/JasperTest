@@ -1,0 +1,31 @@
+{
+  "name": "jaspertest",
+  "version": "1.0.0",
+  "description": "JasperTest",
+  "main": "index.js",
+  "scripts": {
+    "debug": "npx playwright test --debug",
+    "test": "npx playwright test",
+    "allure:generate": "npx allure generate ./allure-results --clean",
+    "allure:open": "npx allure open ./allure-report",
+    "allure:serve": "npx allure serve",
+    "posttest": "npm run allure:generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanKSPsoft/JasperTest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanKSPsoft/JasperTest/issues"
+  },
+  "homepage": "https://github.com/IvanKSPsoft/JasperTest#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.27.1",
+    "allure-commandline": "^2.18.1",
+    "experimental-allure-playwright": "^0.0.3",
+    "playwright": "^1.27.1"
+  }
+}
