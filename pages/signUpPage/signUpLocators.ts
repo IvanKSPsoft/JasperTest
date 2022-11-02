@@ -1,0 +1,21 @@
+export const signUpLocators = {
+    userType1Locator: '[data-testing="select-patient-recently-diagnosed"]',
+    firstNameFieldLocator: '#first-name',
+    lastNameFiedlLocator: '#last-name',
+    dobFieldLocator: '[placeholder="mm/dd/yyyy"]',
+    biologicalSexFieldLocator: '#biological-sex',
+    sexFemaleOptionLocator: '[data-testing="radio-label:{biologicalSexId}:{Female}"]',
+    zipCodeFeildLocator: '#zip-code',
+    submitButtonLocator: '[data-testing="button-submit"]',
+    emailFeildLocator: '#email',
+    passwordFieldLocator: '#password',
+    confirmPasswordFieldLocator: '#passwordConfirmation',
+    tosCheckboxLocator: '#sms-consent',
+    welcomeModalTextLocator: '//*[contains(text(),"Welcome")]',
+    pharmacyFieldLocator: '#primary-specialty-pharmacy',
+    specificPharmacyLocator: '[data-testing="checkbox-field:{primarySpecialtyPharmacy}:{CVS Specialty Pharmacy}"]',
+    specificCancerTypeLocator: '[data-testing="checkbox-field:{diagnoses}:{Bile Duct (Cholangiocarcinoma)}"]',
+    treatmentPageLocator: '//*[contains(text(),"I don’t have any current treatments")]',
+    connectPageTextLocator: '//*[contains(text(),"Connect Your Health Apps")]',
+    interestsPageTextLocator: '//*[contains(text(),"Anything else you might want to know about?")]'
+}
