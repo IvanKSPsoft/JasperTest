@@ -12,8 +12,12 @@ export class HomePage {
         await this.page.goto('/home')
     }
 
-    async observeHomePage() {
+    async observeWelcomeText() {
         await this.page.locator('//*[contains(text(),"Welcome to Jasper")]').waitFor()
+    }
+    
+    async observeHomePage() {
+        await this.page.locator('[data-testing="tab:{Today}"]').waitFor()
     }
     
     

@@ -16,6 +16,7 @@ test.describe('Sign-up', async() =>{
         await app.signUpPage.observeTreatmentPage()
         await app.signUpPage.observeConnectionPage()
         await app.signUpPage.observeInterestsPage()
-        await app.homePage.observeHomePage()
+        await app.homePage.observeWelcomeText()
+
     })
 })
