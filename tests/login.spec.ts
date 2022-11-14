@@ -26,7 +26,7 @@ test.describe('Login', async() => {
         await app.loginPage.observeAlertModal()
     })
 
-    test.only('Logout', async({page}) => {
+    test('Logout', async({page}) => {
         const app = new App(page)
 
         await app.loginPage.inputLoginCred(testData.loginEmail, testData.password)
