@@ -1,4 +1,5 @@
 import { Locator, Page } from '@playwright/test';
+import { testData } from '../utils/dataset';
 import { signUpLocators } from './signUpLocators';
 
 
@@ -49,6 +50,19 @@ export class SignUpPage {
 
     async open() {
         await this.page.goto('/signup')
+    }
+
+    async createNewUser() {
+        await this.open()
+        await this.selectUserType()
+        await this.inputUserInfo(testData.randomFirstName, testData.randomLastName)
+        await this.inputAccountData(testData.email, testData.password)
+        await this.observeWelcomeModal()
+        await this.inputAdditionalInfo()
+        await this.selectCancerType()
+        await this.observeTreatmentPage()
+        await this.observeConnectionPage()
+        await this.observeInterestsPage()
     }
 
     async selectUserType() {

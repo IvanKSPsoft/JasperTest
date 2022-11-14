@@ -18,9 +18,14 @@ export class LoginPage {
 
     async clickLoginBtn(){
         await this.page.locator('[data-testing="button-submit"]').click()
+        await this.page.waitForLoadState('networkidle')
     }
 
     async observeAlertModal() {
         await this.page.locator('div[role="alert"]').waitFor()
+    }
+    
+    async observeLoginScreen(){
+        await this.page.locator('#email').waitFor()
     }
 }

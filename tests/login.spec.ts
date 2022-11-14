@@ -25,4 +25,14 @@ test.describe('Login', async() => {
         await app.loginPage.clickLoginBtn()
         await app.loginPage.observeAlertModal()
     })
+
+    test.only('Logout', async({page}) => {
+        const app = new App(page)
+
+        await app.loginPage.inputLoginCred(testData.loginEmail, testData.password)
+        await app.loginPage.clickLoginBtn()
+        await app.profilePage.open()
+        await app.profilePage.clickLogout()
+        await app.loginPage.observeLoginScreen()
+    })
 })
