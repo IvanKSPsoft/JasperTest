@@ -96,6 +96,7 @@ export class SignUpPage {
         await this.pharmacyField.click()
         await this.specificPharmacy.click()
         await this.page.locator('[data-testing="button-submit"]', {hasText: 'Done'}).click()
+        await this.page.locator('[data-testing="button-submit"]', {hasText: 'Done'}).waitFor({state: 'hidden'})
         await this.submitButton.click()
     }
 
