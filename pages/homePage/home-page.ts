@@ -50,7 +50,26 @@ export class HomePage {
 
     async clickGlobalAddDailyTrackerBtn() {
         await this.globalAddDailyTrackerBtn.click()
+    }
 
+    async clickGlobalAddAppointmentBtn() {
+        await this.globalAddAppointmentBtn.click()
+    }
+
+    async clickGlobalAddTodoBtn() {
+        await this.globalAddTodoBtnLocator.click()
+    }
+
+    async clickGlobalAddMedicationBtn() {
+        await this.globalAddMedicationBtn.click()
+    }
+
+    async clickGlobalAddNotenBtn() {
+        await this.globalAddNoteBtn.click()
+    }
+
+    async clickGlobalAddDocumentBtn() {
+        await this.globalAddNoteBtn.click()
     }
     
     

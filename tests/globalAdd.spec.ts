@@ -18,12 +18,39 @@ test.describe('Global Add btn Tests', async() => {
         await app.homePage.observeGlobalAddButtonList()
     })
 
-    test.only('Open Tracker Modal', async({page}) => {
+    test('Open Tracker Modal', async({page}) => {
         const app = new App(page)
 
         await app.homePage.clickGlobalAddDailyTrackerBtn()
-        await page.waitForURL('https://my.hellojasper.dev/home?modal=tracker')
+        await page.waitForURL('/home?modal=tracker')
     })
 
+    test('Open Appointment Modal', async({page}) => {
+        const app = new App(page)
+
+        await app.homePage.clickGlobalAddAppointmentBtn()
+        await page.waitForURL('/home?modal=add-appointment')
+    })
+
+    test('Open Todo Modal', async({page}) => {
+        const app = new App(page)
+
+        await app.homePage.clickGlobalAddTodoBtn()
+        await page.waitForURL('/home?modal=add-todo')
+    })
+
+    test('Open Medication Modal', async({page}) => {
+        const app = new App(page)
+
+        await app.homePage.clickGlobalAddMedicationBtn()
+        await page.waitForURL('/home?modal=medication')
+    })
+
+    test('Open Note Modal', async({page}) => {
+        const app = new App(page)
+
+        await app.homePage.clickGlobalAddNotenBtn()
+        await page.waitForURL('/home?modal=add-global-note')
+    })
 
 })
