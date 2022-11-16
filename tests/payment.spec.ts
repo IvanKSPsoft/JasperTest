@@ -6,9 +6,18 @@ test.describe('Payment Tests', async() => {
         const app = new App(page)
 
         await app.signUpPage.createNewUser()
+        await app.homePage.observeWelcomeText()
     })
 
     test('Subscribe with Valid Card', async({page}) => {
-        
+        const app = new App(page)
+
+        await app.paymentPage.open()
+        await app.paymentPage.clickGetCoachBtn()
+        await app.paymentPage.inputCreditCardDetailes()
+        await app.paymentPage.clickPayAndSubscribeBtn()
+        await app.paymentPage.clickGetStartedBtn()
+        await app.paymentPage.clickGotItBtn()
+        await app.plannerPage.observeDefaultSharedActions()
     })
 })

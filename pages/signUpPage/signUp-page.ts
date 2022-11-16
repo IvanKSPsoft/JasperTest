@@ -24,6 +24,7 @@ export class SignUpPage {
     treatmentPage: Locator;
     connectPageText: Locator;
     interestsPageText: Locator;
+    finishBtn: Locator;
 
     constructor(page: Page) {
         this.page = page
@@ -46,6 +47,7 @@ export class SignUpPage {
         this.treatmentPage = page.locator(signUpLocators.treatmentPageLocator)
         this.connectPageText = page.locator(signUpLocators.connectPageTextLocator)
         this.interestsPageText = page.locator(signUpLocators.interestsPageTextLocator)
+        this.finishBtn = page.locator(signUpLocators.finishBtnLocator)
     }
 
     async open() {
@@ -85,11 +87,13 @@ export class SignUpPage {
         await this.confirmPasswordField.fill(password)
         await this.tosCheckbox.click()
         await this.submitButton.click()
+        await this.page.waitForLoadState("networkidle")
     }
 
     async observeWelcomeModal() {
         await this.welcomeModalText.waitFor()
         await this.submitButton.click()
+        await this.page.waitForLoadState("networkidle")
     }
     
     async inputAdditionalInfo() {
@@ -98,26 +102,31 @@ export class SignUpPage {
         await this.page.locator('[data-testing="button-submit"]', {hasText: 'Done'}).click()
         await this.page.locator('[data-testing="button-submit"]', {hasText: 'Done'}).waitFor({state: 'hidden'})
         await this.submitButton.click()
+        await this.page.waitForLoadState("networkidle")
     }
 
     async selectCancerType() {
         await this.specificCancerType.click()
         await this.submitButton.click()
+        await this.page.waitForLoadState("networkidle")
     }
 
     async observeTreatmentPage() {
         await this.treatmentPage.waitFor()
         await this.submitButton.click()
+        await this.page.waitForLoadState("networkidle")
     }
 
     async observeConnectionPage() {
         await this.connectPageText.waitFor()
         await this.submitButton.click()
+        await this.page.waitForLoadState("networkidle")
     }
 
     async observeInterestsPage() {
         await this.interestsPageText.waitFor()
-        await this.submitButton.click()
+        await this.finishBtn.click()
+        await this.page.waitForLoadState("networkidle")
     }
 
 }

@@ -7,6 +7,7 @@ export const signUpLocators = {
     sexFemaleOptionLocator: '[data-testing="radio-label:{biologicalSexId}:{Female}"]',
     zipCodeFeildLocator: '#zip-code',
     submitButtonLocator: '[data-testing="button-submit"]',
+    finishBtnLocator : '//button[contains(text(),"Finish")]',
     emailFeildLocator: '#email',
     passwordFieldLocator: '#password',
     confirmPasswordFieldLocator: '#passwordConfirmation',
