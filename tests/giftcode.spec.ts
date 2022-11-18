@@ -14,7 +14,7 @@ test.describe('Gift Code' , () => {
         console.log(giftCode.value.code)
     })
 
-    test.only('Sunscribe with GiftCode', async({page}) => {
+    test('Subscribe with GiftCode', async({page}) => {
         const app = new App(page)
         let giftCode
 
@@ -28,4 +28,25 @@ test.describe('Gift Code' , () => {
         await app.plannerPage.observeDefaultSharedActions()
     })
     
+    // test.only('Sunscribe with GiftCode', async({context, page}) => {
+    //     const app = new App(page)
+    //     let giftCode
+
+
+    //     await app.signUpPage.createNewUser()
+    //     await app.paymentPage.open()
+    //     await app.paymentPage.clickGetCoachBtn()
+    //     const [newPage] = await Promise.all([
+    //         context.waitForEvent('page'),
+    //         page.locator('//button[contains(text(),"Get Coach+")]').waitFor()
+    //     ])
+    //     const newApp = new App(newPage)
+    //     const giftCodeObject = await newApp.giftCodePage.recieveGiftCode()
+    //     giftCode = giftCodeObject.value.code
+
+
+    //     await app.paymentPage.paywithGiftCode(giftCode)
+    //     await app.paymentPage.clickGotItBtn()
+    //     await app.plannerPage.observeDefaultSharedActions()
+    // })
 })
