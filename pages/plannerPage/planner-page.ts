@@ -13,7 +13,7 @@ export class PlannerPage {
 
     async observeDefaultSharedActions() {
         await this.page.waitForSelector('//p[contains(text(),"Complete your new member evaluation")]')
-        await this.page.waitForSelector('//p[contains(text(),"Schedule your first one-on-one coaching session")]')
+        await this.page.waitForSelector('//p[contains(text(),"Schedule your Welcome Session with a Member Specialist")]')
       }
     
 }

@@ -20,4 +20,11 @@ test.describe('Payment Tests', async() => {
         await app.paymentPage.clickGotItBtn()
         await app.plannerPage.observeDefaultSharedActions()
     })
+        
+    // Oleg FYI
+    test('Subscribe', async({page}) => {
+        const app = new App(page)
+        
+        await app.paymentPage.subscribeToCarePlus()
+    })
 })

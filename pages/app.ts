@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+import { GiftCodePage } from './giftCodePage/giftCode-page';
 import { HomePage } from './homePage/home-page';
 import { LoginPage } from './loginPage/login-page';
 import { PaymentPage } from './paymentPage/payment-page';
@@ -14,6 +15,7 @@ export class App {
     loginPage: LoginPage;
     profilePage: ProfilePage;
     paymentPage: PaymentPage;
+    giftCodePage: GiftCodePage;
 
     constructor(page: Page) {
         this.page = page
@@ -23,5 +25,6 @@ export class App {
         this.loginPage = new LoginPage(page)
         this.profilePage = new ProfilePage(page)
         this.paymentPage = new PaymentPage(page)
+        this.giftCodePage = new GiftCodePage(page)
     }
 }

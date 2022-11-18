@@ -126,7 +126,9 @@ export class SignUpPage {
     async observeInterestsPage() {
         await this.interestsPageText.waitFor()
         await this.finishBtn.click()
+        await this.page.waitForURL('/home')
         await this.page.waitForLoadState("networkidle")
+        
     }
 
 }

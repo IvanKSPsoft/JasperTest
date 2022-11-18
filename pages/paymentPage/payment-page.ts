@@ -1,10 +1,11 @@
 import { expect, Locator, Page } from '@playwright/test';
+import { App } from '../app';
 import { paymentPageLocators } from './paymentPageLocators';
 
 export class PaymentPage {
   readonly page: Page;
   getCoachBtn: Locator;
-  giftCodeFriled: Locator;
+  giftCodeField: Locator;
   subscribeBtn: Locator;
   creditCardInput: Locator;
   creditCardDateInput: Locator;
@@ -16,12 +17,13 @@ export class PaymentPage {
   continuePremSubscrBtn: Locator;
   creditCardName: Locator;
   creditCardZip: Locator;
-    gotItBtn: Locator;
+  gotItBtn: Locator;
+  reedemBtn: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.getCoachBtn = page.locator(paymentPageLocators.getCoachBtnLocator)
-    this.giftCodeFriled = page.locator(paymentPageLocators.giftCodeFriledLocator)
+    this.giftCodeField = page.locator(paymentPageLocators.giftCodeFieldLocator)
     this.subscribeBtn= page.locator(paymentPageLocators.subscribeBtnLocator)
     this.creditCardInput = page.frameLocator('[title="Secure card number input frame"]').locator('[aria-label="Credit or debit card number"]'),
     this.creditCardDateInput = page.frameLocator('[title="Secure expiration date input frame"]').locator('[aria-label="Credit or debit card expiration date"]'),
@@ -34,6 +36,8 @@ export class PaymentPage {
     this.creditCardName = page.locator(paymentPageLocators.creditCardNameLocator)
     this.creditCardZip = page.locator(paymentPageLocators.creditCardZipLocator)
     this.gotItBtn = page.locator(paymentPageLocators.gotItBtnLocator)
+    this.reedemBtn = page.locator(paymentPageLocators.reedemBtnLocator)
+
   }
 
   async openPremimSignUpPage() {
@@ -44,12 +48,23 @@ export class PaymentPage {
     await this.page.goto('/profiles/subscriptions')
   }
 
+  async subscribeToCarePlus() {
+    const app = new App(this.page)
+    await this.open()
+    await this.clickGetCoachBtn()
+    await this.inputCreditCardDetailes()
+    await this.clickPayAndSubscribeBtn()
+    await this.clickGetStartedBtn()
+    await this.clickGotItBtn()
+    await app.plannerPage.observeDefaultSharedActions()
+  }
+
   async clickGetCoachBtn() {
     await this.getCoachBtn.click()
   }
 
   async inputGiftCode(code: string) {
-    await this.giftCodeFriled.fill(code)
+    await this.giftCodeField.fill(code)
   }
 
   async clickSubscribeBtn() {
@@ -95,6 +110,10 @@ export class PaymentPage {
     await this.creditCardZip.fill(zip)
   }
 
-
-      
+  async paywithGiftCode(giftCode: string) {
+    await this.giftCodeField.fill(giftCode)
+    await this.reedemBtn.click()
+    await this.page.waitForLoadState('networkidle')
+  }
+     
 }
