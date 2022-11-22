@@ -6,5 +6,7 @@ export const homePageLocators = {
     globalAddMedicationBtnLocator : '//div[.="Medication"]/div[3]',
     globalAddNoteBtnLocator : '//div[.="Note"]/div[3]',
     globalAddDocumentBtnLocator : '//div[.="Photo or Document"]/div[3]',
+    trackAllFlowBtnLocator : `//*[text()="Track how you're doing today"]/../..`,
+    dailyTrackerCompleteStateLocator : `//*[text()="You’ve Tracked Today!"]`
 
 }

@@ -11,6 +11,8 @@ export class HomePage {
     globalAddMedicationBtn: Locator;
     globalAddNoteBtn: Locator;
     globalAddDocumentBtn: Locator;
+    trackAllFlowBtn: Locator;
+    dailyTrackerCompleteState: Locator;
 
     constructor(page: Page) {
         this.page = page
@@ -21,6 +23,8 @@ export class HomePage {
         this.globalAddMedicationBtn = page.locator(homePageLocators.globalAddMedicationBtnLocator)
         this.globalAddNoteBtn = page.locator(homePageLocators.globalAddNoteBtnLocator)
         this.globalAddDocumentBtn = page.locator(homePageLocators.globalAddDocumentBtnLocator)
+        this.trackAllFlowBtn = page.locator(homePageLocators.trackAllFlowBtnLocator)
+        this.dailyTrackerCompleteState = page.locator(homePageLocators.dailyTrackerCompleteStateLocator)
     }
 
     async open() {
@@ -70,6 +74,14 @@ export class HomePage {
 
     async clickGlobalAddDocumentBtn() {
         await this.globalAddNoteBtn.click()
+    }
+
+    async clickTrackAllFlow() {
+        await this.trackAllFlowBtn.click()
+    }
+
+    async observeDailyTrackerCompleteState() {
+        await this.dailyTrackerCompleteState.waitFor()
     }
     
     
