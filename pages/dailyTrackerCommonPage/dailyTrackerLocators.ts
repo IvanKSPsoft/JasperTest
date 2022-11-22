@@ -4,4 +4,6 @@ export const dailyTrackerLocators = {
     temperatureFrameLocator : '//*[text()="Temperature"]/../../..',
     temperatureFiledLocator : '#temperature',
     saveBtnLocator : '//button[text()="Save"]',
+    weightFrameLocator : '//*[text()="Weight"]/../../..',
+    weightFieldLocator : '#weight'
 }

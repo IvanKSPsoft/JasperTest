@@ -8,6 +8,8 @@ export class DailyTrackerCommonPage {
     temperatureFrame: Locator;
     temperatureFiled: Locator;
     saveBtn: Locator;
+    weightFrame: Locator;
+    weightField: Locator;
 
     constructor(page: Page) {
         this.page = page
@@ -16,6 +18,8 @@ export class DailyTrackerCommonPage {
         this.temperatureFrame = page.locator(dailyTrackerLocators.temperatureFrameLocator)
         this.temperatureFiled = page.locator(dailyTrackerLocators.temperatureFiledLocator)
         this.saveBtn = page.locator(dailyTrackerLocators.saveBtnLocator)
+        this.weightFrame = page.locator(dailyTrackerLocators.weightFrameLocator)
+        this.weightField = page.locator(dailyTrackerLocators.weightFieldLocator)
     }
 
     async trackMood(mood: "Anxious" | "Depressed" | "Okay") {
@@ -42,9 +46,12 @@ export class DailyTrackerCommonPage {
         await this.page.locator(`//*[contains(text(),"${temperature}")]`).waitFor()
     }
 
+    async trackWeight(weight = "170") {
+        await this.weightFrame.click()
+        await this.weightField.fill(weight)
+        await this.saveBtn.click()
+        await this.page.locator(`//*[contains(text(),"${weight}.00 lb")]`).waitFor()
+    }
+
         
-        // await this.page.locator('[data-testing="button-submit"]').click()
-        // await this.page.locator('//*[contains(text(),"Keep up the good work")]').waitFor()
-        // await this.page.locator('[data-testing="button-submit"]').click()
-    
 }
