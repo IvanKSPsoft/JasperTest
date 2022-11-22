@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+import { DailyTrackerCommonPage } from './dailyTrackerCommonPage/dailyTrackerCommon-page';
 import { GiftCodePage } from './giftCodePage/giftCode-page';
 import { HomePage } from './homePage/home-page';
 import { LoginPage } from './loginPage/login-page';
@@ -16,6 +17,7 @@ export class App {
     profilePage: ProfilePage;
     paymentPage: PaymentPage;
     giftCodePage: GiftCodePage;
+    dailyTrackerPage: DailyTrackerCommonPage;
 
     constructor(page: Page) {
         this.page = page
@@ -26,5 +28,6 @@ export class App {
         this.profilePage = new ProfilePage(page)
         this.paymentPage = new PaymentPage(page)
         this.giftCodePage = new GiftCodePage(page)
+        this.dailyTrackerPage = new DailyTrackerCommonPage(page)
     }
 }
