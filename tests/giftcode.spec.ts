@@ -28,7 +28,7 @@ test.describe('Gift Code' , () => {
         await app.plannerPage.observeDefaultSharedActions()
     })
     
-    // test.only('Sunscribe with GiftCode', async({context, page}) => {
+    // test('Sunscribe with GiftCode', async({context, page}) => {
     //     const app = new App(page)
     //     let giftCode
 
