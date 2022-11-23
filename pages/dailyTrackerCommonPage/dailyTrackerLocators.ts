@@ -5,5 +5,11 @@ export const dailyTrackerLocators = {
     temperatureFiledLocator : '#temperature',
     saveBtnLocator : '//button[text()="Save"]',
     weightFrameLocator : '//*[text()="Weight"]/../../..',
-    weightFieldLocator : '#weight'
+    weightFieldLocator : '#weight',
+    blodPressureFrameLocator : '//*[text()="Blood Pressure"]/../../..',
+    sustolicPressureFieldLocator : '#bloodPressureSystolic',
+    diastolicPressureFieldLocator : '#bloodPressureDiastolic',
+    sleeFrameLocator : '//*[text()="Sleep"]/../../..',
+    sleepHoursFieldLocator : '#hours',
+    sleepMinutesFieldLocator : '#minutes'
 }

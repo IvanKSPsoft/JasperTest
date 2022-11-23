@@ -1,5 +1,6 @@
 import { test } from '@playwright/test';
 import { App } from '../pages/app';
+import { dailyTrackerData } from '../pages/utils/dailyTrackerData';
 
 test.describe('Daily Tracker', async() =>{
     test.beforeEach(async({page}) => {
@@ -9,9 +10,7 @@ test.describe('Daily Tracker', async() =>{
     })
 
     test('Track All Flow', async({page}) => {
-        const app = new App(page),
-        temperature = '120',
-        weight = '180'
+        const app = new App(page)
 
         await app.homePage.clickTrackAllFlow()
         await app.dailyTrackerPage.trackMood('Anxious')
@@ -20,8 +19,10 @@ test.describe('Daily Tracker', async() =>{
         await app.dailyTrackerPage.clickNextBtn()
         await app.dailyTrackerPage.trackSymptom('Pain', "Very Severe")
         await app.dailyTrackerPage.clickNextBtn()
-        await app.dailyTrackerPage.trackTemperature(temperature)
-        await app.dailyTrackerPage.trackWeight(weight)
+        await app.dailyTrackerPage.trackTemperature(dailyTrackerData.temperature)
+        await app.dailyTrackerPage.trackWeight(dailyTrackerData.weight)
+        await app.dailyTrackerPage.trackBlodPressure(dailyTrackerData.sustolic, dailyTrackerData.diastolic)
+        await app.dailyTrackerPage.trackSleep(dailyTrackerData.hours, dailyTrackerData.minute)
         await app.dailyTrackerPage.clickNextBtn()
         await app.dailyTrackerPage.observeLastDailyTrackerScreen()
         await app.dailyTrackerPage.clickNextBtn()

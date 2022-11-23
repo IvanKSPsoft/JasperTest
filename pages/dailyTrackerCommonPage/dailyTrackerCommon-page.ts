@@ -10,6 +10,12 @@ export class DailyTrackerCommonPage {
     saveBtn: Locator;
     weightFrame: Locator;
     weightField: Locator;
+    blodPressureFrame: Locator;
+    sustolicPressureField: Locator;
+    diastolicPressureField: Locator;
+    sleeFrame: Locator;
+    sleepHoursField: Locator;
+    sleepMinutesField: Locator;
 
     constructor(page: Page) {
         this.page = page
@@ -20,6 +26,12 @@ export class DailyTrackerCommonPage {
         this.saveBtn = page.locator(dailyTrackerLocators.saveBtnLocator)
         this.weightFrame = page.locator(dailyTrackerLocators.weightFrameLocator)
         this.weightField = page.locator(dailyTrackerLocators.weightFieldLocator)
+        this.blodPressureFrame = page.locator(dailyTrackerLocators.blodPressureFrameLocator)
+        this.sustolicPressureField = page.locator(dailyTrackerLocators.sustolicPressureFieldLocator)
+        this.diastolicPressureField = page.locator(dailyTrackerLocators.diastolicPressureFieldLocator)
+        this.sleeFrame = page.locator(dailyTrackerLocators.sleeFrameLocator)
+        this.sleepHoursField = page.locator(dailyTrackerLocators.sleepHoursFieldLocator)
+        this.sleepMinutesField = page.locator(dailyTrackerLocators.sleepMinutesFieldLocator)
     }
 
     async trackMood(mood: "Anxious" | "Depressed" | "Okay") {
@@ -51,6 +63,22 @@ export class DailyTrackerCommonPage {
         await this.weightField.fill(weight)
         await this.saveBtn.click()
         await this.page.locator(`//*[contains(text(),"${weight}.00 lb")]`).waitFor()
+    }
+
+    async trackBlodPressure(sustolic = "110", diastolic ='90') {
+        await this.blodPressureFrame.click()
+        await this.sustolicPressureField.fill(sustolic)
+        await this.diastolicPressureField.fill(diastolic)
+        await this.saveBtn.click()
+        await this.page.locator(`//*[contains(text(),"${sustolic} / ${diastolic} mm Hg")]`).waitFor()
+    }
+
+    async trackSleep(hours = "10", minute ='20') {
+        await this.sleeFrame.click()
+        await this.sleepHoursField.fill(hours)
+        await this.sleepMinutesField.fill(minute)
+        await this.saveBtn.click()
+        await this.page.locator(`//*[contains(text(),"${hours} Hours ${minute} Mins")]`).waitFor()
     }
 
         

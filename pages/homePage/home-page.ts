@@ -83,6 +83,11 @@ export class HomePage {
     async observeDailyTrackerCompleteState() {
         await this.dailyTrackerCompleteState.waitFor()
     }
+
+    async clickReccomendationsAllItemTab() {
+        await this.page.locator('[data-testing="tab:{All Items}"]').click()
+        await this.page.locator('[aria-selected="true"][data-testing="tab:{All Items}"]').waitFor()
+    }
     
     
 }
