@@ -7,6 +7,8 @@ export const homePageLocators = {
     globalAddNoteBtnLocator : '//div[.="Note"]/div[3]',
     globalAddDocumentBtnLocator : '//div[.="Photo or Document"]/div[3]',
     trackAllFlowBtnLocator : `//*[text()="Track how you're doing today"]/../..`,
-    dailyTrackerCompleteStateLocator : `//*[text()="You’ve Tracked Today!"]`
+    dailyTrackerCompleteStateLocator : `//*[text()="You’ve Tracked Today!"]`,
+    allItemsTabLocator : '[data-testing="tab:{All Items}"]',
+    allItemsActiveTabLocator : '[aria-selected="true"][data-testing="tab:{All Items}"]'
 
 }

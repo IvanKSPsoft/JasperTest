@@ -13,6 +13,8 @@ export class HomePage {
     globalAddDocumentBtn: Locator;
     trackAllFlowBtn: Locator;
     dailyTrackerCompleteState: Locator;
+    allItemsTab: Locator;
+    allItemsActiveTab: Locator;
 
     constructor(page: Page) {
         this.page = page
@@ -25,6 +27,8 @@ export class HomePage {
         this.globalAddDocumentBtn = page.locator(homePageLocators.globalAddDocumentBtnLocator)
         this.trackAllFlowBtn = page.locator(homePageLocators.trackAllFlowBtnLocator)
         this.dailyTrackerCompleteState = page.locator(homePageLocators.dailyTrackerCompleteStateLocator)
+        this.allItemsTab = page.locator(homePageLocators.allItemsTabLocator)
+        this.allItemsActiveTab = page.locator(homePageLocators.allItemsActiveTabLocator)
     }
 
     async open() {
@@ -87,6 +91,11 @@ export class HomePage {
     async clickReccomendationsAllItemTab() {
         await this.page.locator('[data-testing="tab:{All Items}"]').click()
         await this.page.locator('[aria-selected="true"][data-testing="tab:{All Items}"]').waitFor()
+    }
+
+    async clickAllItemsTab() {
+        await this.allItemsTab.click()
+        await this.allItemsActiveTab.waitFor()
     }
     
     
