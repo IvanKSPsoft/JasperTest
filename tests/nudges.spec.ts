@@ -17,7 +17,7 @@ test.describe('Nudges', async() => {
         await page.waitForURL('/library', {waitUntil: 'networkidle'})
     })
 
-    test.only('Add medication(anytime)', async({page}) => {
+    test('Add medication(anytime) nudge', async({page}) => {
         const app = new App(page)
 
         await page.locator('[href="/home?modal=medication"]').click()
@@ -34,6 +34,21 @@ test.describe('Nudges', async() => {
         await page.locator('//*[contains(text(),"As Needed")]').waitFor()
         await page.locator('[data-testing="button-submit-medication"]').click()
         await page.waitForURL('/home')
+        await page.reload()
         await page.locator('[href="/home?modal=medication"]').waitFor({state: "hidden"})
+    })
+
+    test.only('Add Interest Nudge', async({page}) => {
+        const app = new App(page)
+
+        await page.locator('[href="/home?modal=add-interests"]').click()
+        await page.waitForURL('/home?modal=add-interests', {waitUntil: 'networkidle'})
+        await page.locator('//*[text()="Caregiving"]/../..'). click()
+        await page.locator('[data-testing="button-submit"]').click()
+        await page.waitForURL('/home')
+        await page.reload()
+        await page.locator('[href="/home?modal=add-interests"]').waitFor({state: "hidden"})
+        await page.goto('/profiles/interests')
+        await page.locator('//*[text()="Caregiving"]/../..').waitFor()
     })
 })
