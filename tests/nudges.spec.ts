@@ -146,7 +146,7 @@ test.describe('Nudges', async() => {
         await page.waitForURL('/profiles/connections', {waitUntil: 'networkidle'})
     })
 
-    test.only('Add Race And Ethnicity Nudge', async({page}) => {
+    test('Add Race And Ethnicity Nudge', async({page}) => {
         const app = new App(page)
 
         await page.locator('//*[text()="Add your Speciality Pharmacy"]/../../../div/button').click()

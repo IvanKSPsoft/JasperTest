@@ -58,7 +58,7 @@ export class SignUpPage {
         await this.open()
         await this.selectUserType()
         await this.inputUserInfo(testData.randomFirstName, testData.randomLastName)
-        await this.inputAccountData(testData.email, testData.password)
+        await this.inputAccountData(`ivantest+${Math.floor(Math.random() * 9000000)}+play@spsoft.com`, testData.password)
         await this.observeWelcomeModal()
         await this.inputAdditionalInfo()
         await this.selectCancerType()
@@ -91,7 +91,8 @@ export class SignUpPage {
     }
 
     async observeWelcomeModal() {
-        await this.welcomeModalText.waitFor()
+        await this.page.waitForURL('/onboarding/patient/welcome')
+        // await this.welcomeModalText.waitFor()
         await this.submitButton.click()
         await this.page.waitForLoadState("networkidle")
     }
